@@ -11,7 +11,7 @@ class EvenementManager
     }
 
 
-    p  public function add($evenement)
+    public function add($evenement)
       {
 
           $reqSQL = 'INSERT INTO accident VALUES (:idevenement, :nom_event, :desc_event, :date_event, :idlieu)';
@@ -30,6 +30,29 @@ class EvenementManager
           $tabAll = array();
 
           $reqSQL = "SELECT idevenement, nom_event, desc_event, date_event, idlieu FROM evenement";
+          $reqPreparee = $this->db->prepare($reqSQL);
+          $reqPreparee->execute();
+
+          while ($evenement = $reqPreparee->fetch(PDO::FETCH_OBJ)) {
+              $tabAll[] = new Evenement($evenement->idevenement,
+                                      $evenement->nom_event,
+                                      $evenement->desc_event,
+                                      $evenement->date_event,
+                                      $evenement->idlieu
+                                    );
+          }
+          $reqPreparee->closeCursor();
+
+          return $tabAll;
+      }
+
+      public function getAllFromDepartement($departement)
+      {
+
+          $tabAll = array();
+
+          $reqSQL = "SELECT idevenement, nom_event, desc_event, date_event, e.idlieu
+                    FROM evenement e JOIN lieu l on e.idlieu = l.idlieu where departement=".$departement;
           $reqPreparee = $this->db->prepare($reqSQL);
           $reqPreparee->execute();
 

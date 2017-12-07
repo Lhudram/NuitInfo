@@ -14,8 +14,8 @@ switch ($page) {
     case $pages["connexion"]:
         include_once("include/pages/connexion.inc.php");
         break;
-    case $pages["autreslulz"]:
-        include_once("include/pages/autreslulz.inc.php");
+    case $pages["home"]:
+        include_once("include/pages/home.inc.php");
         break;
 
     default:
