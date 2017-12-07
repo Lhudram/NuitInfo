@@ -1,0 +1,16 @@
+html{display: block;}
+
+body {display: flex; flex-wrap: wrap; justify-content: center; margin: 0px;}
+
+header {display:inline-flex; width:100%; height:100px; align-items: center; justify-content: space-around; text-decoration: none; margin: 0px;}
+header>nav {height:100%; display:flex; align-items: center; justify-content: center; font-size: 1em;}
+header>nav>a {display: flex; height: auto; width: auto; align-self:center; text-decoration: none; color:black; margin-right: 50px; align-items: center; padding: 10px; font-family: 'Days One', sans-serif;}
+header>nav>a:hover {color: #2776dc; transition-duration: 0.3s;}
+
+/*#events {width: 100%, height: auto; min-height: 200px;}*/
+
+#events {display: inline-flex; flex-wrap: wrap; flex-direction: raw; height: 300px; width: 100%; justify-content: space-around; align-items: left; background-color: grey;}
+#events>h3 {font-size: 2.7em; color: black;}
+#events>p {font-family: 'Michroma'; font-size: 1.2em;}
+#createEvent { align-self: right; }
+
