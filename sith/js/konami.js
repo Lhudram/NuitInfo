@@ -10,7 +10,7 @@ cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
   konami.opacity = 1;
   konami.width = '200vh';
   konami.height = '200vh';
-  konami.marginTop = '-100vh';
+  konami.marginTop = '-130vh';
   konami.marginLeft = '-100vh';
   }
 );

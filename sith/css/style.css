@@ -7,26 +7,37 @@ header>nav { height:100%; display:flex; align-items: center; justify-content: ce
 header>nav>a {font-family : "Ubuntu"; display: flex; height: auto; width: auto; align-self:center; text-decoration: none; color:black; margin-right: 50px; align-items: center; padding: 10px;}
 header>nav>a:hover {color: #2776dc; transition-duration: 0.3s;}
 
-#banner{display: flex; width: 100%; height: 700px; flex-direction : column; align-items: center; justify-content: center; background-color : red;/*background-image: url('./../img/banner01.jpg');*/ }
+#banner{display: flex; width: 100%; height: 700px; flex-direction : column; align-items: center; justify-content: center; background-image: url('./../img/route.jpg'); background-size: cover; }
 #banner>div>img {width: 100%;}
 #banner>div {display: flex; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: flex-end;}
-#banner>div>a>i {color: white; opacity: 0.8; font-size: 2em; margin-bottom: 25px;}
+#banner>div>a>i {color: white; opacity: 0.5; font-size: 2em; margin-bottom: 25px;}
+#banner>div>a>i:hover {opacity: 1; transition-duration: 0.3s; }
 
-#announce {width: 40%; height: auto; background: rgba(0,0,0,0.5); color: white;}
+/*#announce {width: 40%; height: auto; color: white;}*/
+#announce>p {font-family: "Ubuntu"; font-size: 2em; color: white; background: rgba(0,0,0,0.4); padding: 100px;}
 
 /*#events {width: 100%, height: auto; min-height: 200px;}*/
 
-#events {display: inline-flex; flex-wrap: wrap; flex-direction: raw; height: 300px; width: 100%; justify-content: space-around; align-items: center; background-color: grey;}
+#events {display: inline-flex; flex-wrap: wrap; flex-direction: raw; height: 300px; width: 100%; justify-content: space-around; align-items: center; background-color: #4CDEF5;}
 #events>div>h3 {font-family : "Ubuntu"; font-size: 2.7em; color: black;}
 #events>p {font-family: 'Michroma'; font-size: 1.2em;}
-#events>div>input {height: 30px;}
-#events>div>button {height: 30px;}
-#createEvent { text-decoration : none; align-self: flex-end; font-size: 1.6em; position: relative; color: white; opacity: 0.6;}
-#createEvent:hover {opacity: 1; font-size: 2em; transition-duration: 0.6s;}
+#events>div>input {height: 30px; width: 300px;}
+#events>div>button {height: 50px; width: 50px;}
+.participate {text-decoration: none; color: #841983; opacity: 0.6;}
+.participate:hover {opacity: 1; transition-duration: 0.4s;}
 
-#results>a {text-decoration: none; display: none;}
+#results {font-family: "Ubuntu"; font-size: 1.4em; color: #841983;}
 
-#prev {display: flex; flex-direction: column; width: 100%; height: auto; min-height: 300px; background-color: blue;}
+/*#image {display: flex; flex-direction: column; align-items: center; justify-content: center;}
+#image>h3 {width: 100%; font-family: "Ubuntu", sans-serif; font-size: 2em; align-self: center; padding-left : 20px; padding-right : 20px;}*/
+
+#image {display: flex; flex-direction: column; width: 100%; height: auto; min-height: 300px;}
+#image>h3 {font-family: "Ubuntu", sans-serif; font-size: 2em; align-self: center; padding-left : 20px; padding-right : 20px;}
+#image>img {width:40vw; height:auto; margin: auto;}
+
+#prev {display: flex; flex-direction: column; width: 100%; height: auto; min-height: 300px;}
+#prev>h3 {font-family: "Ubuntu", sans-serif; font-size: 2em; align-self: center; padding-left : 20px; padding-right : 20px;}
+#quote {font-family: "Shadows Into Light", cursive; font-size: 1.6em; padding: 20px;}
 #advices {height : auto; width : 100%; min-height: 200px;background-color: grey;}
 #assistance {width: 100%; height : auto; display: inline-flex; flex-direction: column; background-color: #4CDEF5; justify-content: space-around; align-items: center;}
 
@@ -36,16 +47,13 @@ header>nav>a:hover {color: #2776dc; transition-duration: 0.3s;}
 #calls>a {font-family : "Ubuntu"; text-decoration: none; color:#FF5992; font-size: 1.6em; opacity: 0.6;}
 #calls>a:hover {opacity: 1; transition-duration: 0.3s; }
 
-#map {height: auto; width: 100%}
+footer {display: inline-flex; flex-wrap: wrap; flex-direction: column; height: auto; width: 100%; justify-content: space-between; align-items: center;}
+footer>p {font-family : "Ubuntu"; padding-top: 20px; color: #841983;}
 
-footer {display: inline-flex; flex-wrap: wrap; flex-direction: column; height: auto; width: 100%; justify-content: space-around; align-items: center;}
-footer>p {font-family : "Ubuntu"; padding-top: 50px; color: #A4D555;}
-
-#socials {display: inline-flex; justify-content: space-around; align-items: center; height: auto; width: 20%; font-size: 1.6em; padding-top: 50px; color : #841983;}
-#socials>a {text-decoration: none; color: #A4D555;}
+#socials {display: inline-flex; justify-content: space-around; align-items: center; height: auto; width: 20%; font-size: 1.6em; padding-top: 30px; padding-bottom: 30px; color : #841983;}
+#socials>a {text-decoration: none; color: #841983;}
 #socials>a:hover {color: #4CDEF5; transition-duration: 0.5s;}
 
-@media handheld {
-	#calls>a {font-size: 2.6em;}
-	
-}
+.post {display: flex; flex-direction: column; width: 80%; align-items: center; justify-content: center; border-bottom: 1px solid red; align-self: center;}
+.post>h4 {font-family: "Ubuntu", sans-serif; font-size: 1.6em; padding: 0px; margin: 0px; color: #841983;}
+.post>p {font-family: 'Shadows Into Light', cursive; font-size: 1.4em;}
