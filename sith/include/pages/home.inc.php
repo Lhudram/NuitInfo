@@ -10,7 +10,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Ubuntu" rel="stylesheet">
 	<link rel="icon" type="image/png" href="img/favicon.png" />
 	<link href="./css/konami.css" rel="stylesheet" media="all" type="text/css">
-	<script src='js/geoloc.js'></script>
 </head>
 <body>
 	<?php
@@ -25,17 +24,67 @@
 	<header>
 		<div id="logo"><img src="img/logo.png" alt="logo"></div>
 		<nav>
-			<a href="#">Connexion</a> <!- Affichage espace de connexion ->
-			<a href="#">Inscription</a> <!- Affichage espace de création de compte ->
+			<a href="#">Connexion</a>
+			<a href="#">Inscription</a>
 		</nav>
 	</header>
 	<section id="banner">
 		<div id="announce">
-			<p>Appli Web préventive</p>
+			<p>La Nuit de l'Info 2017, pour rentrer chez soi en sécurité</p>
 		</div>
 		<div>
 			<a href="#events"><i id="arrow" class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
 		</div>
+	</section>
+	<section id="accident">
+		<div>
+			<form id="liste"  action="#" method="POST">
+				<h2> Vous êtes face à un accident ? </h2>
+				<input type="submit" value="Signaler un accident" class="pure-button pure-button-primary" style="margin-left:25px;">
+				<input type="hidden" name="ajoutaccident" value="TRUE" />
+			</form>
+
+			<div class="result"></div>
+		</div>
+		<div>
+		<button id="security"> Voir les consignes de sécurité </button>
+	</div>
+		<div id="etapes">
+			<p>Suivez les étapes ci-après </p>
+			<p>1 - Mettez votre <span>gilet jaune</span> et placez votre <span>triangle rouge</span> afin de prévenir du danger </p>
+			<a href=#calls><span>2 - Appelez les secours en cliquant ici </span></a>
+			<p>3 - Regardez si la ou les victimes sont <span>conscientes</span> (en les appelant, en leur demandant de serrer la main) ou au moins respirent.</p>
+			<p>4 - <span>Ne bougez pas une victime sauf si il y a un danger immédiat.</span></p>
+		</div>
+	</section>
+	<section>
+		<form id="liste2"  action="#" method="POST">
+	  	<div class="prob">
+	  		<h2> Signaler un autre problème</h2>
+	  		<p> Type de problème </p>
+	  		<input type="textarea" name="type" rows="4" cols="50" name="type" ></textarea>
+	  	</div>
+	  	<div class="prob">
+				<input type="submit" value="Valider" class="pure-button pure-button-primary" style="margin-left:25px;">
+				<input type="hidden" name="ajouterincident" value="TRUE" />
+	  		<div class="result2"></div>
+	  	</div>
+		</form>
+		<?php
+			if(isset($_POST["ajoutaccident"])){
+				$date = localtime(time(),true);
+				$heure = ($date["tm_hour"]+1).":".$date["tm_min"].":".$date["tm_sec"];
+				$accident = new Accident($lattitude,$longitude,"accident",$heure,1);
+				$accidentManager->add($accident);
+				unset($_POST["ajoutaccident"]);
+			}
+
+			if(!empty($_POST["type"])){
+			$date = localtime(time(),true);
+			$heure = ($date["tm_hour"]+1).":".$date["tm_min"].":".$date["tm_sec"];
+			$accident = new Accident($lattitude,$longitude,$_POST["type"],$heure,1);
+			$accidentManager->add($accident);
+		} ?>
 	</section>
 	<section id="events">
 		<form id="liste"  action="#" method="POST">
@@ -68,6 +117,7 @@
 		</div>
 		</form>
 	</section>
+
 	<section id="image">
 		<h3>Accident près de vous : </h3>
 	<?php if(!empty($accidents)){ ?>
@@ -119,6 +169,10 @@
             <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
             <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a>
 		</div>
+
+		<script src='js/jquery.js'></script>
+		<script src='js/jsmobile.js'></script>
+		<script src='js/geoloc.js'></script>
 	</footer>
 </body>
 </html>

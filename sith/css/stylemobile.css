@@ -46,8 +46,7 @@ button {
 }
 
 section:first-of-type {
-  /*background-color: #4cdef5;*/
-  background-image: url('./road.jpg');
+  background-image: url('../img/road.jpg');
   background-repeat: no-repeat;
 
 }

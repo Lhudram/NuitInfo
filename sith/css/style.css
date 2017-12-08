@@ -57,3 +57,60 @@ footer>p {font-family : "Ubuntu"; padding-top: 20px; color: #841983;}
 .post {display: flex; flex-direction: column; width: 80%; align-items: center; justify-content: center; border-bottom: 1px solid red; align-self: center;}
 .post>h4 {font-family: "Ubuntu", sans-serif; font-size: 1.6em; padding: 0px; margin: 0px; color: #841983;}
 .post>p {font-family: 'Shadows Into Light', cursive; font-size: 1.4em;}
+
+#accident {
+  font-family: "Ubuntu";
+  width: 40vw;
+  margin-right: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#accident h1,h2 {
+  margin: 20px;
+  text-align: center;
+}
+
+#accident button{
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 20px;
+  background: #DFAF2C;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+.pure-button{
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 20px;
+  background: #DFAF2C;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#accident span {
+  color: red;
+}
+
+
+#etapes {
+  visibility: hidden;
+  border:2px solid black;
+}
+
+.prob {
+  font-family: "Ubuntu", sans-serif;
+  position: relative;
+  justify-content: flex-start;
+}
+
+.prob button {
+  border-radius: 5px;
+  color: #ffffff;
+  background: #DFAF2C;
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
