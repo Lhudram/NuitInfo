@@ -21,41 +21,41 @@ function Paddle(x, y, width, height) {
 
 
 function Player() {
-	this.paddle = new Paddle(40, height/2 -25, 5, 50);
+	this.paddle = new Paddle(80, height/2 - 50, 10, 100);
 }
 
 Player.prototype.render = function() {
 	context.fillStyle = "#000000";
 	context.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
-	context.fillRect(this.paddle.x - 10, this.paddle.y, this.paddle.width, this.paddle.height / 2);
-	context.fillRect(this.paddle.x - 10, this.paddle.y + this.paddle.height / 2, this.paddle.width * 3, this.paddle.width);
+	context.fillRect(this.paddle.x - 20, this.paddle.y, this.paddle.width, this.paddle.height / 2);
+	context.fillRect(this.paddle.x - 20, this.paddle.y + this.paddle.height / 2, this.paddle.width * 3, this.paddle.width);
 };
 
 function Computer() {
-	this.paddle = new Paddle(560, height/2 -25, 5	, 50);
+	this.paddle = new Paddle(520, height/2 -50, 10, 100);
 }
 
 Computer.prototype.render = function() {
 	context.fillStyle = "#000000";
 	context.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
-	context.fillRect(this.paddle.x + 10, this.paddle.y, this.paddle.width, this.paddle.height / 2);
+	context.fillRect(this.paddle.x + 20, this.paddle.y, this.paddle.width, this.paddle.height / 2);
 	context.fillRect(this.paddle.x, this.paddle.y + this.paddle.height / 2, this.paddle.width * 3, this.paddle.width);
 };
 
 Computer.prototype.update = function(ball) {
-	/*	var x_pos = ball.x;
-	var diff = -((this.paddle.x + (this.paddle.width / 2)) - x_pos);
+	var y_pos = ball.y;
+	var diff = -((this.paddle.y + (this.paddle.height / 2)) - y_pos);
 	if(diff < 0 && diff < -4) { // max speed left
-	diff = -5;
-} else if(diff > 0 && diff > 4) { // max speed right
-diff = 5;
-}
-this.paddle.move(diff, 0);
-if(this.paddle.x < 0) {
-this.paddle.x = 0;
-} else if (this.paddle.x + this.paddle.width > 400) {
-this.paddle.x = 400 - this.paddle.width;
-}*/
+		diff = -5;
+	} else if(diff > 0 && diff > 4) { // max speed right
+		diff = 5;
+	}
+	this.paddle.move(0, diff);
+	if(this.paddle.y < 0) {
+		this.paddle.y = 0;
+	} else if (this.paddle.y + this.paddle.height > height) {
+		this.paddle.y = height - this.paddle.height;
+	}
 };
 
 Player.prototype.update = function() {
@@ -91,7 +91,7 @@ function Ball(x, y) {
 	this.y = y;
 	this.x_speed = 2;
 	this.y_speed = 0;
-	this.radius = 10;
+	this.radius = 25;
 }
 
 Ball.prototype.render = function() {
@@ -101,7 +101,7 @@ Ball.prototype.render = function() {
 	context.fill();
 
 	context.beginPath();
-	context.arc(this.x, this.y, this.radius / 2, 2 * Math.PI, false);
+	context.arc(this.x, this.y, this.radius * 0.7, 2 * Math.PI, false);
 	context.fillStyle = "#FFFFFF";
 	context.fill();
 };
@@ -114,11 +114,11 @@ Ball.prototype.update = function(paddle1, paddle2) {
 	var x_bottom = this.x + this.radius;
 	var y_bottom = this.y + this.radius;
 
-	if(y_top < 10) {
-		this.y = 20;
+	if(y_top < 0) {
+		this.y = this.radius + 1;
 		this.y_speed = -this.y_speed;
-	} else if (y_bottom > height - 10) {
-		this.y = height - 20;
+	} else if (y_bottom > height) {
+		this.y = height - this.radius -1;
 		this.y_speed = -this.y_speed;
 	}
 
@@ -129,17 +129,15 @@ Ball.prototype.update = function(paddle1, paddle2) {
 		this.y = height/2;
 	}
 
-	if(x_bottom > paddle2.x) {
-		if(y_top > paddle2.y && y_bottom < paddle2.y + paddle2.height) {
+	if(x_bottom > paddle2.x && x_bottom < paddle2.x + paddle2.width) {
+		if(this.y > paddle2.y && this.y < paddle2.y + paddle2.height ) {
 			this.x_speed = -3;
-			this.y_speed += (paddle1.y_speed / 2);
-			//this.y_speed = -this.y_speed;
+			this.y_speed += (paddle2.y_speed / 2);
 		}
-	} else if (x_top < paddle1.x + paddle1.width) {
-		if(y_top > paddle1.y && y_bottom < paddle1.y + paddle1.height) {
+	} else if (x_top < paddle1.x + paddle1.width && x_bottom > paddle1.x) {
+		if(this.y > paddle1.y && this.y < paddle1.y + paddle1.height) {
 			this.x_speed = 3;
 			this.y_speed += (paddle1.y_speed / 2);
-			//this.y_speed = -this.y_speed;
 		}
 	}
 }
@@ -159,7 +157,7 @@ var computer = new Computer();
 var ball = new Ball(width/2, height/2);
 
 var render = function() {
-	context.fillStyle = 'rgba(255, 255, 255, 0.4)';
+	context.fillStyle = 'rgba(255, 255, 255, 0.5)';
 	context.fillRect(0, 0, width, height);
 	player.render();
 	computer.render();
