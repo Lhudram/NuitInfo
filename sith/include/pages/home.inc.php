@@ -5,11 +5,17 @@
 	<meta name="keywords" content="securite, sécurité, routiere, routière, prevention, prévention">
 	<meta name="desc" content="Application web créée dans le cadre de la Nuit de l'Info par l'équipe Teletubbies. Ce site est un site préventif sur la sécurité routière. L'application web vous permet d'être notifié(e) des éventuels accidents ou autres évènements perturbants pour votre conduite dans votre secteur. Selon le support que vous utilisez, la priorité d'affichage change selon vos besoins.">
 	<title>Prévention jeune - Sécurité routière</title>
-	<link href="./../../css/style.css" rel="stylesheet" media="all" type="text/css">
+	<link href="css/style.css" rel="stylesheet" media="all" type="text/css">
+	  <link href="./css/konami.css" rel="stylesheet" media="all" type="text/css">
 	<script src="https://use.fontawesome.com/8d95560a8a.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
 <body>
+	<?php
+		$db = new Mypdo();
+		$evenementManager = new EvenementManager($db);
+		$lieuManager = new LieuManager($db);
+	?>
 	<header>
 		<div id="logo"><img src="" alt="logo"></div>
 		<nav>
@@ -26,6 +32,7 @@
 		</div>
 	</section>
 	<section id="events">
+		<form id="liste"  action="#" method="POST">
 		<div>
 			<h3>Rechercher des évènements... et un SAM !</h3>
 			<input type="text" name="search" placeholder="Département (16, 75...)">
@@ -33,10 +40,28 @@
 		</div>
 		<div id="results">
 			<?php
-			//traitement affichant les résultats de recherche
+			if(!empty($_POST["search"])){
+			$evenements = $evenementManager->getAllFromDepartement($_POST["search"]);
+			$lieus=$lieuManager->getAll();
+			foreach ($evenements as $evenement) {
+					echo '<p ';
+					echo 'value="';
+					echo $evenement->getIdevenement();
+					echo '">';
+					echo $evenement->getNomevent() . " " . $evenement->getDescevent()
+					. " " . $evenement->getDateevent();
+					foreach ($lieus as $lieu) {
+						if($evenement->getIdlieu()==$lieu->getIdlieu())
+						echo " ". $lieu->getAdresse() .'</p>';
+					}
+					?>
+					<?php
+			}
+		}
 			?>
 			<a href="#">Participer</a>
 		</div>
+		</form>
 		<a href="./app/Controllers/OrgAdd.php" id="createEvent"><i class="fa fa-plus-circle" aria-hidden="true"></i></a> <!- Formulaire de création d'un évènement si utilisateur connecté = organisateur ->
 	</section>
 	<section id="prev">
