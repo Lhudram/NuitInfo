@@ -6,7 +6,9 @@
 	<meta name="desc" content="Application web créée dans le cadre de la Nuit de l'Info par l'équipe Teletubbies. Ce site est un site préventif sur la sécurité routière. L'application web vous permet d'être notifié(e) des éventuels accidents ou autres évènements perturbants pour votre conduite dans votre secteur. Selon le support que vous utilisez, la priorité d'affichage change selon vos besoins.">
 	<title>Prévention jeune - Sécurité routière</title>
 	<link href="./css/style.css" rel="stylesheet" media="all" type="text/css">
+	<link href="./css/konami.css" rel="stylesheet" media="all" type="text/css">
 	<script src="https://use.fontawesome.com/8d95560a8a.js"></script>
+
 </head>
 <body>
 	<?php
@@ -45,7 +47,6 @@
 								echo " ". $lieu->getAdresse() .'</p>';
 							}
 							?>
-							<a href="#">Participer</a>
 							<?php
 					}
 				}

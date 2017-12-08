@@ -1,4 +1,4 @@
-myAudio = new Audio('audio/konamiSound.ogg');
+myAudio = new Audio('sound/konamiSound.ogg');
 myAudio.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();

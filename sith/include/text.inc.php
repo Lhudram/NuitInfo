@@ -7,9 +7,12 @@ if (!empty($_GET["page"])) {
 }
 if (!empty($_GET["nom_utilisateur"]))
     $page = 2;
+
+$random404 = rand(0,1);
+
 switch ($page) {
-    case $pages["main_page"]:
-        include_once('include/pages/main_page.inc.php');
+    case $pages["devinette"]:
+        include_once('include/pages/devinette.inc.php');
         break;
     case $pages["connexion"]:
         include_once("include/pages/connexion.inc.php");
@@ -17,12 +20,12 @@ switch ($page) {
     case $pages["home"]:
         include_once("include/pages/home.inc.php");
         break;
-	  case $pages["404"]:
-  		 include_once("include/pages/404.inc.php");
-  		 break;
 
     default:
-        include_once('include/pages/main_page.inc.php');
+      if($random404<0.5)
+        include_once('include/pages/404.inc.php');
+      else
+        include_once('include/pages/devinette.inc.php');
         break;
 }
 
