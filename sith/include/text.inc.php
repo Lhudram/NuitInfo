@@ -20,6 +20,9 @@ switch ($page) {
     case $pages["home"]:
         include_once("include/pages/home.inc.php");
         break;
+    case $pages["endroit"]:
+        include_once("include/pages/endroit.inc.php");
+        break;
 
     default:
       if($random404<0.5)
