@@ -14,4 +14,3 @@
 <hr>
 <script src="js/pong.js"></script>
 <div id="pong"></div>
->>>>>>> fa76f5242fbdb1c4212eda83e8d3d689892fe0ab
