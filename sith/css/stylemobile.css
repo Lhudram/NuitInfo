@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+*
+{ box-sizing:border-box;
+  margin:0px;
+}
+
+a {
+  display: flex;
+  text-decoration: none;
+  color:black;
+  vertical-align: middle;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+
+li {
+  list-style-type:none;
+}
+
+section {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+}
+
+div {
+  display: flex;
+  padding : 5px;
+  margin-bottom: 5px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  display: flex;
+  align-self: center;
+}
+
+section:first-of-type {
+  /*background-color: #4cdef5;*/
+  background-image: url('./road.jpg');
+  background-repeat: no-repeat;
+
+}
+
+
+
+#etapes {
+  visibility: hidden;
+}
+
+h1,h2 {
+  margin: 20px;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+}
+#etapes {
+  border:2px solid white;
+  background-color: #175732;
+}
+
+button{
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 20px;
+  background: #DFAF2C;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+span {
+  color: red;
+}
+
+section:first-of-type a {
+  background-color: #a4d555;
+  padding:10px 5px 10px 5px;
+}
+
+section:first-of-type img {
+  width:80vw;
+  height:auto;
+  margin:auto;
+}
+
+section:nth-of-type(2) {
+  background-color:#24445C;
+  position: relative;
+  justify-content: flex-start;
+}
+
+section:nth-of-type(2) button {
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+}

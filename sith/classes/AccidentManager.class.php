@@ -38,7 +38,30 @@ class AccidentManager
                                     $accident->longitude,
                                     $accident->type,
                                     $accident->heure,
-                                    $accident->nombre,
+                                    $accident->nombre
+                                  );
+        }
+        $reqPreparee->closeCursor();
+
+        return $tabAll;
+    }
+
+    public function getAllFromLocation($lattitude, $longitude)
+    {
+
+        $tabAll = array();
+
+        $reqSQL = "SELECT lattitude, longitude, type, heure, nombre FROM accident where lattitude
+        BETWEEN ".($lattitude-0.025)." AND ".($lattitude+0.025)." AND longitude BETWEEN ".($longitude-0.025)." AND ".($longitude+0.025);
+        $reqPreparee = $this->db->prepare($reqSQL);
+        $reqPreparee->execute();
+
+        while ($accident = $reqPreparee->fetch(PDO::FETCH_OBJ)) {
+            $tabAll[] = new Accident($accident->lattitude,
+                                    $accident->longitude,
+                                    $accident->type,
+                                    $accident->heure,
+                                    $accident->nombre
                                   );
         }
         $reqPreparee->closeCursor();
