@@ -22,10 +22,7 @@ switch ($page) {
         break;
 
     default:
-      if($random404<0.5)
         include_once('include/pages/404.inc.php');
-      else
-        include_once('include/pages/devinette.inc.php');
         break;
 }
 
