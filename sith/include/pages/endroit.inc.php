@@ -10,9 +10,8 @@
    ?>
 </head>
 <body>
-    <img src="https://maps.googleapis.com/maps/api/staticmap?&size=1000x1000&maptype=roadmap
-              <?php foreach($accidents as $accident) {
-                  echo "&markers=color:red%7C".$accident->getLattitude().".714728,".$accident->getLongitude().".714728";
+    <img src="https://maps.googleapis.com/maps/api/staticmap?&size=1000x1000&maptype=roadmap<?php foreach($accidents as $accident) {
+                  echo "&markers=color:red%7C".$accident->getLattitude().",".$accident->getLongitude();
               }
                 echo "&sensor=false";
               ?>">
