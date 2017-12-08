@@ -58,6 +58,7 @@ footer>p {font-family : "Ubuntu"; padding-top: 20px; color: #841983;}
 .post>h4 {font-family: "Ubuntu", sans-serif; font-size: 1.6em; padding: 0px; margin: 0px; color: #841983;}
 .post>p {font-family: 'Shadows Into Light', cursive; font-size: 1.4em;}
 
+<<<<<<< HEAD
 #accident {
   font-family: "Ubuntu";
   width: 40vw;
@@ -114,3 +115,7 @@ footer>p {font-family : "Ubuntu"; padding-top: 20px; color: #841983;}
   padding: 5px 10px 5px 10px;
   text-decoration: none;
 }
+=======
+#erreur {text-align: center; font-family: "Ubuntu", sans-serif; font-size: 1.6em; margin-top: 1em;}
+#erreur>#devinette {margin-top: 3em; margin-bottom: 3em;}
+>>>>>>> 213b6b8d4f9996291d2579abd358bfb7ca4edb68
