@@ -3,13 +3,49 @@ html{display: block;}
 body {display: flex; flex-wrap: wrap; justify-content: center; margin: 0px;}
 
 header {display:inline-flex; width:100%; height:100px; align-items: center; justify-content: space-around; text-decoration: none; margin: 0px;}
-header>nav {height:100%; display:flex; align-items: center; justify-content: center; font-size: 1em;}
-header>nav>a {display: flex; height: auto; width: auto; align-self:center; text-decoration: none; color:black; margin-right: 50px; align-items: center; padding: 10px; font-family: 'Days One', sans-serif;}
+header>nav { height:100%; display:flex; align-items: center; justify-content: center; font-size: 1em;}
+header>nav>a {font-family : "Ubuntu"; display: flex; height: auto; width: auto; align-self:center; text-decoration: none; color:black; margin-right: 50px; align-items: center; padding: 10px;}
 header>nav>a:hover {color: #2776dc; transition-duration: 0.3s;}
+
+#banner{display: flex; width: 100%; height: 700px; flex-direction : column; align-items: center; justify-content: center; background-color : red;/*background-image: url('./../img/banner01.jpg');*/ }
+#banner>div>img {width: 100%;}
+#banner>div {display: flex; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: flex-end;}
+#banner>div>a>i {color: white; opacity: 0.8; font-size: 2em; margin-bottom: 25px;}
+
+#announce {width: 40%; height: auto; background: rgba(0,0,0,0.5); color: white;}
 
 /*#events {width: 100%, height: auto; min-height: 200px;}*/
 
-#events {display: inline-flex; flex-wrap: wrap; flex-direction: raw; height: 300px; width: 100%; justify-content: space-around; align-items: left; background-color: grey;}
-#events>h3 {font-size: 2.7em; color: black;}
+#events {display: inline-flex; flex-wrap: wrap; flex-direction: raw; height: 300px; width: 100%; justify-content: space-around; align-items: center; background-color: grey;}
+#events>div>h3 {font-family : "Ubuntu"; font-size: 2.7em; color: black;}
 #events>p {font-family: 'Michroma'; font-size: 1.2em;}
-#createEvent { align-self: right; }
+#events>div>input {height: 30px;}
+#events>div>button {height: 30px;}
+#createEvent { text-decoration : none; align-self: flex-end; font-size: 1.6em; position: relative; color: white; opacity: 0.6;}
+#createEvent:hover {opacity: 1; font-size: 2em; transition-duration: 0.6s;}
+
+#results>a {text-decoration: none; display: none;}
+
+#prev {display: flex; flex-direction: column; width: 100%; height: auto; min-height: 300px; background-color: blue;}
+#advices {height : auto; width : 100%; min-height: 200px;background-color: grey;}
+#assistance {width: 100%; height : auto; display: inline-flex; flex-direction: column; background-color: #4CDEF5; justify-content: space-around; align-items: center;}
+
+#assistance>p {font-family: "Ubuntu"; font-size: 1.6em; color: #841983;}
+
+#calls {display: inline-flex; width: 100%; flex-direction: row; justify-content: space-around; padding-bottom: 20px; flex-wrap: wrap;}
+#calls>a {font-family : "Ubuntu"; text-decoration: none; color:#FF5992; font-size: 1.6em; opacity: 0.6;}
+#calls>a:hover {opacity: 1; transition-duration: 0.3s; }
+
+#map {height: auto; width: 100%}
+
+footer {display: inline-flex; flex-wrap: wrap; flex-direction: column; height: auto; width: 100%; justify-content: space-around; align-items: center;}
+footer>p {font-family : "Ubuntu"; padding-top: 50px; color: #A4D555;}
+
+#socials {display: inline-flex; justify-content: space-around; align-items: center; height: auto; width: 20%; font-size: 1.6em; padding-top: 50px; color : #841983;}
+#socials>a {text-decoration: none; color: #A4D555;}
+#socials>a:hover {color: #4CDEF5; transition-duration: 0.5s;}
+
+@media handheld {
+	#calls>a {font-size: 2.6em;}
+	
+}
