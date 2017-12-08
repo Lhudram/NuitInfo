@@ -1,7 +1,4 @@
-<html>
-<head>
-  <link href="./css/konami.css" rel="stylesheet" media="all" type="text/css">
-</head>
+
   <script type="text/javascript">
 
     var num = 404;
@@ -31,13 +28,11 @@
     }
 
   </script>
-<body>
-  <h1>Trouver le bon nombre</h1>
+
+  <h2>Une petite partie ?</h2>
+  <p>Trouve le bon nombre</p>
   <hr>
   <b>Votre choix :</b>
   <input TYPE="text" id="devine" SIZE="5">
   <button VALUE="Essayer" onClick="Devine();">Cliquez sur moi :)</button>
   <p id="aide" ></p>
-
-</body>
-</html>
