@@ -1,6 +1,6 @@
 <?php
 
-class BulletinModeleSalaireManager
+class UtilisateurManager
 {
 
     private $db;
@@ -11,12 +11,15 @@ class BulletinModeleSalaireManager
     }
 
 
-    public function add($bulletinModeleSalaire)
+    public function add($utilisateur)
     {
 
-        $reqSQL = 'INSERT INTO BULLETIN_MODELE_SALAIRE (intitulebulletinmodelesalaire) VALUES (:intituleBulletinModeleSalaire)';
+        $reqSQL = 'INSERT INTO utilisateur VALUES (:idutilisateur, :login:, :pwd, :estsam)';
         $reqPreparee = $this->db->prepare($reqSQL);
-        $reqPreparee->bindValue(':intituleBulletinModeleSalaire', $bulletinModeleSalaire->getIntitule());
+        $reqPreparee->bindValue(':idutilisateur', $utilisateur->getIdutilisateur());
+        $reqPreparee->bindValue(':login', $utilisateur->getLogin());
+        $reqPreparee->bindValue(':pwd', $utilisateur->getPwd());
+        $reqPreparee->bindValue(':estsam', $utilisateur->getEstsam());
         $reqPreparee->execute();
     }
 
@@ -25,12 +28,16 @@ class BulletinModeleSalaireManager
 
         $tabAll = array();
 
-        $reqSQL = "SELECT idbulletinmodelesalaire, intitulebulletinmodelesalaire FROM BULLETIN_MODELE_SALAIRE";
+        $reqSQL = "SELECT idutilisateur, login, pwd, estsam FROM utilisateur";
         $reqPreparee = $this->db->prepare($reqSQL);
         $reqPreparee->execute();
 
-        while ($bulletinModeleSalaire = $reqPreparee->fetch(PDO::FETCH_OBJ)) {
-            $tabAll[] = new BulletinModeleSalaire($bulletinModeleSalaire->idbulletinmodelesalaire, $bulletinModeleSalaire->intitulebulletinmodelesalaire);
+        while ($utilisateur = $reqPreparee->fetch(PDO::FETCH_OBJ)) {
+            $tabAll[] = new Utilisateur($utilisateur->idutilisateur,
+                                        $utilisateur->login,
+                                        $utilisateur->pwd,
+                                        $utilisateur->estsam,
+                                      );
         }
         $reqPreparee->closeCursor();
 
