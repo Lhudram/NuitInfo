@@ -17,6 +17,9 @@ switch ($page) {
     case $pages["autreslulz"]:
         include_once("include/pages/autreslulz.inc.php");
         break;
+	  case $pages["404"]:
+  		 include_once("include/pages/404.inc.php");
+  		 break;
 
     default:
         include_once('include/pages/main_page.inc.php');
